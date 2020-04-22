@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#F37066D1"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditText
+        android:id="@+id/tv_name"
+    android:layout_margin="30dp"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Nhập tên"
+    android:textStyle="bold"
+    android:textSize="30sp"
+    android:background="#DA3BB460"
+    android:textColor="#fff"
+    ></EditText>
+    <EditText
+        android:id="@+id/tv_number"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập số điện thoại"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:background="#DA3BB460"
+        android:textColor="#fff">
+    </EditText>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:layout_marginLeft="16dp"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:textColor="#77C75D"
+    ></TextView>
+    <RadioGroup
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:checked="true"
+            android:textColor="#fff"
+            android:id="@+id/rd_male"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Male"></RadioButton>
+        <RadioButton
+            android:textColor="#fff"
+            android:id="@+id/rd_female"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Female"></RadioButton>
+    </RadioGroup>
+    <Button
+        android:layout_marginTop="20dp"
+        android:textColor="#fff"
+        android:id="@+id/btn_add"
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="ADD CONTACT"
+        android:background="#DCE46D30">
+    </Button>
+
+    <ListView
+        android:id="@+id/lv_contact"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+</LinearLayout>
