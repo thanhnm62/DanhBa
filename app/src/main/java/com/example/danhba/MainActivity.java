@@ -25,6 +25,7 @@ import com.example.danhba.model.Contact;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private EditText edtNumber,edtName;
     private RadioButton rdMale,rdFemale;
@@ -46,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ShowDialogConfirm(position);
+            }
+        });
+        lvContact.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                ShowDialogUpDel();
+                return false;
             }
         });
 
@@ -73,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 contactAdapter.notifyDataSetChanged();
             }
         });
+
     }
     private void AnhXa() {
         edtName = (EditText) findViewById(R.id.tv_name);
@@ -111,6 +120,24 @@ public class MainActivity extends AppCompatActivity {
         });
         dialog.show();
     }
-    public void intentCall(int position) {
+    public void ShowDialogUpDel() {
+        Dialog dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.update_delete_dialog_layout);
+        Button btnUpdate = (Button) dialog.findViewById(R.id.btn_update);
+        Button btnDelete = (Button) dialog.findViewById(R.id.btn_delete);
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"Thanh",Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"Thanh123",Toast.LENGTH_SHORT).show();
+            }
+        });
+        dialog.show();
     }
 }
