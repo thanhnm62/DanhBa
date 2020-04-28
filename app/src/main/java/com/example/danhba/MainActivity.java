@@ -7,6 +7,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -21,6 +22,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.danhba.adapter.ContactAdapter;
+import com.example.danhba.data.DBContactManager;
 import com.example.danhba.model.Contact;
 
 import java.util.ArrayList;
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         arrContact = new ArrayList<>();
         contactAdapter = new ContactAdapter(this,R.layout.contact_item_listview,arrContact);
         lvContact.setAdapter(contactAdapter);
+        DBContactManager dbContactManager = new DBContactManager(this);
 
         //Xử lí itemListview
         lvContact.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             String name = edtName.getText().toString().trim();
             String phone = edtNumber.getText().toString().trim();
 
+
             Boolean isMale = true;
             if(rdMale.isChecked()){
                 isMale = true;
@@ -82,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+            Contact contact = createContact();
+                dbContactManager.addContact(contact);
     }
     private void AnhXa() {
         edtName = (EditText) findViewById(R.id.tv_name);
@@ -114,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("sms:"+number));
-//
                 startActivity(intent);
             }
         });
@@ -140,4 +145,10 @@ public class MainActivity extends AppCompatActivity {
         });
         dialog.show();
     }
+    private Contact createContact(){
+        String name = edtName.getText().toString();
+        String phone = edtNumber.getText().toString();
+        Contact contact = new Contact(name,phone);
+        return contact;
+    };
 }

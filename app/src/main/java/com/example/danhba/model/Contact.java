@@ -1,14 +1,21 @@
 package com.example.danhba.model;
 
 public class Contact {
+
     private String mName;
     private String mNumberPhone;
     private boolean isMale;
 
     public Contact(String mName, String mNumberPhone, boolean isMale) {
+
         this.mName = mName;
         this.mNumberPhone = mNumberPhone;
         this.isMale = isMale;
+    }
+
+    public Contact(String mName, String mNumberPhone) {
+        this.mName = mName;
+        this.mNumberPhone = mNumberPhone;
     }
 
     public String getmName() {
@@ -35,3 +42,4 @@ public class Contact {
         isMale = male;
     }
 }
+
